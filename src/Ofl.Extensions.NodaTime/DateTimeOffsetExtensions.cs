@@ -5,7 +5,10 @@ namespace Ofl.Extensions.NodaTime
 {
     public static class DateTimeOffsetExtensions
     {
-        public static DateTimeOffset ReplaceOffsetFromDateTimeZone(this DateTimeOffset dateTimeOffset, DateTimeZone dateTimeZone) =>
-            dateTimeOffset.DateTime.ApplyDateTimeZone(dateTimeZone);
+        public static DateTimeOffset ReplaceOffsetFromDateTimeZoneLeniently(this DateTimeOffset dateTimeOffset, DateTimeZone dateTimeZone) =>
+            dateTimeOffset.DateTime.ApplyDateTimeZoneLeniently(dateTimeZone);
+
+        public static DateTimeOffset ReplaceOffsetFromDateTimeZoneStrictly(this DateTimeOffset dateTimeOffset, DateTimeZone dateTimeZone) =>
+            dateTimeOffset.DateTime.ApplyDateTimeZoneStrictly(dateTimeZone);
     }
 }

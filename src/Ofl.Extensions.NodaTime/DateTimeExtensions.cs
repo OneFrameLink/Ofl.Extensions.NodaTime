@@ -6,7 +6,19 @@ namespace Ofl.Extensions.NodaTime
 {
     public static class DateTimeExtensions
     {
-        public static DateTimeOffset ApplyDateTimeZone(this DateTime dateTime, DateTimeZone dateTimeZone)
+        public static DateTimeOffset ApplyDateTimeZoneLeniently(this DateTime dateTime, DateTimeZone dateTimeZone)
+        {
+            // Validate parameters.
+            if (dateTimeZone == null) throw new ArgumentNullException(nameof(dateTimeZone));
+
+            // Create the instance, then apply the date time zone.
+            LocalDateTime local = dateTime.ToLocalDateTime();
+
+            // Apply the time zone now.
+            return dateTimeZone.AtLeniently(local).ToDateTimeOffset();
+        }
+
+        public static DateTimeOffset ApplyDateTimeZoneStrictly(this DateTime dateTime, DateTimeZone dateTimeZone)
         {
             // Validate parameters.
             if (dateTimeZone == null) throw new ArgumentNullException(nameof(dateTimeZone));
