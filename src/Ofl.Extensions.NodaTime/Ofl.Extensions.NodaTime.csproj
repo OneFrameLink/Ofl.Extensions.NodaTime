@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Description>Extensions for NodaTime</Description>
     <AssemblyName>Ofl.Extensions.NodaTime</AssemblyName>
     <PackageId>Ofl.Extensions.NodaTime</PackageId>
